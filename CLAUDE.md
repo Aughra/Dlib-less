@@ -46,7 +46,7 @@ Windows, Linux, x86 et CUDA sont hors du périmètre. Les solutions propres au M
 
 ### Licence et emprunts
 
-dlib et Dlib-Transformer-extensions sont sous **Boost Software License 1.0**. Si un morceau de code en est repris (plutôt que réécrit), garder la mention de licence et d'auteur dans le fichier, et le noter au journal.
+dlib-less est sous **Boost Software License 1.0** ([LICENSE](LICENSE)), comme dlib et Dlib-Transformer-extensions. Si un morceau de code en est repris (plutôt que réécrit), garder la mention de licence et d'auteur dans le fichier, et le noter au journal.
 
 ---
 

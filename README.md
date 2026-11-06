@@ -23,4 +23,4 @@ macOS sur Apple Silicon (arm64) uniquement. C++23.
 
 ## Licence
 
-À choisir (Boost Software License 1.0 proposée, comme dlib et l'extension).
+[Boost Software License 1.0](LICENSE), comme dlib et Dlib-Transformer-extensions.

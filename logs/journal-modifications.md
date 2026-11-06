@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-06 — Adopter la licence Boost
+
+- **Quoi** : ajout du fichier `LICENSE` (Boost Software License 1.0).
+- **Fichiers** : `LICENSE`, `README.md`, `CLAUDE.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : même licence que dlib et Dlib-Transformer-extensions, ce qui simplifie les emprunts de code ; choix validé par l'humain.
+- **Étapes** : ajout du fichier, mise à jour des documents qui la disaient « à confirmer », commit et push.
+
 ## 2026-11-06 — Créer le projet
 
 - **Quoi** : création du squelette documentaire de dlib-less.
