@@ -1,0 +1,18 @@
+# Builds
+build/
+.cache/
+compile_commands.json
+
+# Modèles et données volumineuses
+*.gguf
+*.safetensors
+*.bin
+*.dat
+data/
+
+# macOS
+.DS_Store
+
+# Éditeurs
+.vscode/
+.idea/

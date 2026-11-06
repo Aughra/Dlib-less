@@ -1,0 +1,148 @@
+# CLAUDE.md — dlib-less
+
+## Langue et communication
+
+- **Répondre exclusivement en français, sur un ton doux et concis.**
+- Expliquer simplement : chaque mot technique avec une comparaison de la vie courante, comme pour un ado. Sections courtes, tableaux quand ça aide.
+- Expliquer brièvement l'intention d'une modification avant d'en montrer les détails, et nommer les fichiers et sections exacts qu'elle touche.
+- Les messages de commit, la documentation, le journal et le blog sont en français. Le code (noms, commentaires) est en anglais, pour rester lisible à côté des références (dlib, ggml, MLX, llama.cpp).
+- Si une question est ambiguë, poser **une seule** question de clarification, précise.
+- Quand il y a plusieurs options, les présenter avec leurs pour et leurs contre, et dire laquelle est recommandée.
+- Pas de flatterie, pas de résumé de la question avant de répondre.
+
+---
+
+## Le projet
+
+**dlib-less** est un projet **d'apprentissage** : réécrire **from scratch, en C++ moderne**, les concepts de [dlib](https://github.com/davisking/dlib) (tenseurs, couches, calcul de gradients, entraînement) et de [Dlib-Transformer-extensions](https://github.com/Cydral/Dlib-Transformer-extensions) (Transformers, GGUF, quantification, LoRA, tokenizer…), **sans dépendre de dlib**.
+
+Le but premier est de **comprendre**, pas de concurrencer llama.cpp. Un code lisible et expliqué vaut mieux qu'un code rapide et obscur. La vitesse vient ensuite, mesurée.
+
+Le plan complet est dans [docs/cursus.md](docs/cursus.md). Le contexte (ce qu'est dlib, l'extension, les équivalents, le choix de partir de zéro) est dans [docs/notes-de-depart.md](docs/notes-de-depart.md).
+
+### Plate-forme
+
+**Mac Apple Silicon (arm64) uniquement.**
+
+| | Machine |
+|---|---|
+| Actuelle | Mac M2 (8 cœurs, 24 Go de mémoire unifiée) |
+| Prévue (arrivée fin novembre 2026) | **Mac mini M5 Pro** : CPU 18 cœurs, GPU 20 cœurs, Neural Engine 16 cœurs, **64 Go de mémoire unifiée**, 2 To |
+
+Windows, Linux, x86 et CUDA sont hors du périmètre. Les solutions propres au Mac sont la norme ici : NEON, `__fp16`, Accelerate, Metal (via metal-cpp), mémoire unifiée.
+
+### Standard C++
+
+- Base : **C++23** (`std::expected`, `std::mdspan`, `std::print`, *deducing this*, concepts, ranges).
+- Les nouveautés **C++26** sont permises quand le compilateur les supporte vraiment ; les isoler et le signaler.
+- Compilateur visé : **LLVM de Homebrew** (`brew install llvm`), plus à jour que l'AppleClang de Xcode pour le C++ récent. Décision à confirmer au module 0 ; si AppleClang suffit, le noter ici.
+- Les modules C++20 (`import std;`) sont optionnels et reportés : en-têtes classiques au départ.
+
+### Ce qu'on s'interdit
+
+- **Aucune dépendance à dlib.** On peut le lire pour comprendre, on ne l'inclut pas.
+- Pas de bibliothèque de ML (ggml, LibTorch, MLX…) dans le code. On les lit, on s'en sert comme **référence de comparaison** (par exemple llama.cpp pour vérifier des logits), jamais comme brique.
+- Dépendances permises : la bibliothèque standard, les frameworks Apple (Accelerate, Metal via metal-cpp), une bibliothèque de tests (doctest ou Catch2). Toute autre dépendance se propose et se justifie avant d'être ajoutée.
+
+### Licence et emprunts
+
+dlib et Dlib-Transformer-extensions sont sous **Boost Software License 1.0**. Si un morceau de code en est repris (plutôt que réécrit), garder la mention de licence et d'auteur dans le fichier, et le noter au journal.
+
+---
+
+## Construire
+
+Rien n'est encore construit : la structure arrive au **module 0** (voir [docs/cursus.md](docs/cursus.md)). Règles prévues :
+
+- CMake + Ninja. Tous les dossiers de build sous `build/` (ignoré par `.gitignore`), un dossier par configuration (`build/debug`, `build/release`, `build/asan`).
+- Avec Ninja, `-- -k 0` relève toutes les erreurs en un seul passage. Les compilations longues tournent en arrière-plan.
+- Une configuration avec sanitizers (AddressSanitizer, UBSan) existe dès le départ et passe les tests.
+
+Cette section sera réécrite avec les vraies commandes dès qu'elles existent.
+
+---
+
+## Méthode de travail
+
+- **Au début de chaque session : lire [logs/reprise.md](logs/reprise.md) en premier.**
+- Énoncer ses hypothèses et traduire la demande en **critère vérifiable** avant de coder (par exemple « `ctest` affiche 100 % des tests réussis » ou « les logits diffèrent de ceux de llama.cpp de moins de 1e-3 »).
+- **Pédagogie d'abord** : chaque concept nouveau reçoit une explication courte dans le code ou dans `docs/`, avec une image de la vie courante. L'humain doit pouvoir réécrire le code lui-même après l'avoir lu.
+- **Chaque module se valide par un test** : gradients vérifiés par différences finies, résultats comparés à une référence (Accelerate, llama.cpp), entraînement qui fait réellement baisser la perte.
+- Écrire le minimum qui résout le problème. Ne pas toucher aux fichiers hors du sujet de la demande.
+- Ne déclarer « ça marche » que ce qui a été vérifié sur le Mac. Ce qui a compilé sans avoir été lancé se dit « compilé, pas testé ».
+- Les analyses techniques vont au fond : dire clairement quand une architecture a un défaut.
+- Les mesures de vitesse indiquent la machine (M2 ou M5 Pro), le build (Release) et la commande.
+
+### Sécurité
+
+- Ne jamais afficher, journaliser ni commiter de secrets : clés, jetons, mots de passe.
+- Ne jamais commiter de données privées (adresses e-mail, chemins `/Users/...`, factures, numéros de commande).
+- Moindre privilège dans toute proposition d'architecture ; signaler tout anti-pattern de sécurité repéré (notamment au parsing de fichiers GGUF : tailles et décalages venant du fichier = données non fiables, toujours vérifiées).
+
+---
+
+## Reprise, journal et documentation
+
+### `logs/reprise.md` : l'état vivant du chantier
+
+[logs/reprise.md](logs/reprise.md) dit où en est le chantier : objectif, module en cours, fait, en cours, à faire, décisions, problèmes ouverts, commandes pour reprendre. Il est **réécrit** en continu, et son but est qu'une coupure (session fermée, contexte perdu, changement de machine) ne fasse jamais perdre plus d'une sous-étape.
+
+- **Le mettre à jour à chaque fin de sous-étape**, avant de passer à la suivante.
+- **Le lire en premier** au début de chaque session.
+
+### `logs/journal-modifications.md` : l'historique
+
+Un seul fichier, où chaque intervention **ajoute une entrée en tête** (le plus récent en haut), sans réécrire les précédentes :
+
+```markdown
+## AAAA-MM-JJ — <titre court à l'impératif>
+
+- **Quoi** : résumé du changement.
+- **Fichiers** : chemins touchés.
+- **Pourquoi** : intention.
+- **Étapes** : actions réalisées (build, tests, commit…).
+```
+
+Ce fichier-ci (CLAUDE.md) décrit l'**état actuel** des règles et du projet : quand une section devient fausse, on la réécrit. Les dates et l'historique vont au journal.
+
+### La documentation suit le code
+
+Documents qui doivent toujours rester **vrais** :
+
+- [docs/cursus.md](docs/cursus.md) : le plan, avec l'état de chaque module (à faire, en cours, fait) ;
+- ce fichier CLAUDE.md ;
+- [logs/reprise.md](logs/reprise.md).
+
+**À la fin de chaque sous-étape**, avant de la déclarer terminée : relire ces documents et corriger ce que le changement rend faux ou incomplet. Une doc qui décrit un état dépassé est un défaut, au même titre qu'un test qui ment. Critère vérifiable : aucune commande, option, cible ou résultat cité dans ces documents ne contredit le code ni le dernier build.
+
+[docs/notes-de-depart.md](docs/notes-de-depart.md) est une archive de la discussion de départ : elle ne se réécrit pas, sauf erreur de fait.
+
+### Le blog (un épisode par module ou grande étape, en français)
+
+Le blog raconte l'apprentissage **épisode par épisode**, comme un billet de carnet, pour un lecteur curieux qui n'est pas forcément développeur. Il vit dans [blog/](blog/). Le ton suit celui du carnet TortueTech et du blog du portage Mac de Dlib-Transformer-extensions. Claude ne publie rien en ligne : l'humain décide où et quand.
+
+- **Un épisode par module terminé ou par grande étape, en français seulement** : `blog/NN-titre-court.md`, numéroté à la suite. Est une grande étape : un module validé, un premier entraînement qui apprend, une première inférence d'un vrai modèle, une première mesure qui surprend, un tournant. Un épisode publié ne se réécrit pas ; on ne le corrige que pour une erreur de fait.
+- **Écrit dans le même commit que la fin de l'étape**, avec l'entrée du journal, et ajouté au sommaire [blog/README.md](blog/README.md).
+- **Forme d'un épisode** :
+  - titre `# dlib-less, épisode N : <sujet>` ;
+  - une ouverture d'une ou deux phrases qui renvoie à l'épisode précédent (« Suite de l'épisode N : … ») ;
+  - des sections `##` aux titres parlants, souvent imagés ;
+  - quand il y a de la technique précise, une section **« Pour les curieux : … »** en fin d'épisode, avec les commandes, les chiffres et les extraits de log, pour que le corps du texte reste lisible sans eux ;
+  - une fin **« La suite »** ou **« À suivre »** qui annonce l'épisode suivant.
+- **Ton** : journalistique, posé, au « on », pas à la première personne de Claude, sans dialogue mis en scène. Chaque notion technique reçoit une **image de la vie courante**. Phrases complètes et sobres, un peu d'humour discret, aucune emphase. Les erreurs commises se disent franchement, et le mérite est rendu à qui il revient (dlib, Davis King, Cydral, ggml, MLX…).
+- **Exactitude** : chaque chiffre vient du journal, des commits ou d'une sortie réelle ; un extrait de code, de log ou de commande est copié, jamais inventé. Distinguer ce qui est vérifié de ce qui ne l'est pas.
+- **Aucun secret ni donnée privée** : pas d'adresse e-mail, de chemin `/Users/...`, de clé ni de jeton.
+- Critère vérifiable : chaque `blog/NN-*.md` figure au sommaire, commence par le titre « dlib-less, épisode N », et ne contient ni adresse e-mail ni chemin `/Users/`.
+
+### Autorité
+
+CLAUDE.md est le document d'autorité du projet. En cas de contradiction avec un autre document, la signaler puis la résoudre ici.
+
+---
+
+## Git
+
+- On travaille sur `main`. Pour garder un état, poser un tag (`archive/<sujet>-<date>`) ; chaque module validé reçoit un tag `module-NN`.
+- **Commit de soi-même** après chaque unité de travail cohérente et **vérifiée** (build ou test réussi), avec son entrée dans le journal. Messages en français, concis, à l'impératif : le *quoi* et le *pourquoi*.
+- **Push vers `origin` seulement**, après chaque commit. Jamais de `--force`.
+- Ne jamais commiter `build/`, les modèles (`.gguf`, `.safetensors`, `.bin`), ni les jeux de données volumineux (déjà ignorés).
