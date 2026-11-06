@@ -4,6 +4,27 @@
 
 Le principe : un **cursus-projet**. Chaque module apprend un ensemble de concepts de dlib ou de Dlib-Transformer-extensions, et produit du code qui fonctionne **et qu'un test vérifie**. On ne passe au module suivant que quand le précédent est validé.
 
+**Tout se fait en C++**, y compris les premiers pas et les exercices de maths : pas de Python, même comme brouillon. Les concepts de ML s'abordent d'abord **sur papier**, puis directement en C++.
+
+Le cursus commence par une **préparation** (P1 à P6) : on part de zéro en C++. La méthode d'apprentissage (séances, exercices, carnet, quiz) est dans [../apprentissage/README.md](../apprentissage/README.md).
+
+---
+
+## La préparation : du zéro au module 0
+
+État : ⬜ à faire · 🔄 en cours · ✅ validé
+
+| # | État | Étape | Ce qu'on apprend | Image | Validé quand… |
+|---|---|---|---|---|---|
+| P1 | ⬜ | **Terminal, git, compiler** | Se déplacer dans le Terminal, `git add` / `commit` / `push`, compiler un fichier avec `clang++`, lire un message d'erreur | Le compilateur est un traducteur : ton texte devient des instructions pour le processeur | On compile et lance un « bonjour » soi-même, et on explique chaque mot de la commande |
+| P2 | ⬜ | **C++ de base** | Variables et types, `if`, boucles, fonctions, `std::vector`, `std::string`, `std::print` | Les briques de Lego | Exercices : moyenne d'une liste, inverser un texte, compter les mots |
+| P3 | ⬜ | **La mémoire** | Pile et tas, références, pointeurs, durée de vie, RAII, `std::unique_ptr`, `std::span` | Une adresse sur une boîte aux lettres, et qui rend la clé en partant | Exercices sans fuite ni erreur sous AddressSanitizer |
+| P4 | ⬜ | **Classes et templates** | `struct` et `class`, constructeurs, opérateurs, templates, concepts | Un moule à gâteaux qui marche pour toutes les pâtes | Une petite classe `Matrix` générique, avec tests |
+| P5 | ⬜ | **Maths minimales, en C++** | Vecteurs, produit scalaire, matrices, produit de matrices, dérivée, dérivée en chaîne | Une recette appliquée à toute une rangée de cases d'un coup | Chaque notion d'abord à la main sur papier, puis codée et testée (dont une dérivée vérifiée par différences finies) |
+| P6 | ⬜ | **Un neurone à la main** | Un neurone, puis un tout petit réseau : calcul avant, erreur, correction des poids | Avant de construire l'usine, fabriquer une pièce à la main | Le réseau apprend la fonction XOR, en C++, sans aucune bibliothèque |
+
+Puis : **module 0**.
+
 ---
 
 ## La boîte à outils sur Mac
@@ -88,12 +109,24 @@ Le **module 5** : voir sa propre implémentation, sans aucune bibliothèque de M
 
 ## Lectures de référence
 
+### Pour la préparation
+
+| Pour | Ressource |
+|---|---|
+| Apprendre le C++ pas à pas | **[learncpp.com](https://www.learncpp.com)** : le meilleur cours gratuit, progressif et moderne (en anglais ; la traduction du navigateur marche bien) |
+| Voir les maths | **3Blue1Brown** sur YouTube : *Essence of Linear Algebra* et *Neural Networks* (sous-titres français) |
+| Comprendre les réseaux de neurones | Andrej Karpathy, *Neural Networks: Zero to Hero* (YouTube) : on regarde, on recode en C++ |
+| Petites expériences C++ dans le navigateur | **[godbolt.org](https://godbolt.org)** : on tape du C++, on voit ce que le compilateur en fait |
+| Chercher une fonction de la bibliothèque standard | [cppreference.com](https://en.cppreference.com) |
+
+### Pour les modules
+
 | Pour | Lire |
 |---|---|
 | Concepts de dlib (couches, tenseurs, entraînement) | Le code de [davisking/dlib](https://github.com/davisking/dlib), dossier `dlib/dnn/` |
 | Transformers dans dlib | [Cydral/Dlib-Transformer-extensions](https://github.com/Cydral/Dlib-Transformer-extensions) |
 | Clarté d'un LLM en C | [karpathy/llama2.c](https://github.com/karpathy/llama2.c), [karpathy/llm.c](https://github.com/karpathy/llm.c) |
-| Calcul de gradients minimal | [karpathy/micrograd](https://github.com/karpathy/micrograd), [tinygrad/tinygrad](https://github.com/tinygrad/tinygrad) |
+| Calcul de gradients minimal | La vidéo *micrograd* d'Andrej Karpathy (série *Neural Networks: Zero to Hero*) : on **regarde** l'explication au tableau, on **recode en C++** |
 | Tenseurs et Metal sur Apple Silicon | [ml-explore/mlx](https://github.com/ml-explore/mlx) |
 | GGUF et quantification | [ggml-org/ggml](https://github.com/ggml-org/ggml), [ggml-org/llama.cpp](https://github.com/ggml-org/llama.cpp) |
 | Tokenizer BPE | [karpathy/minbpe](https://github.com/karpathy/minbpe) |

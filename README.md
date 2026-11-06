@@ -10,7 +10,8 @@ C'est un projet **d'apprentissage** : le code vise d'abord à être compris, ens
 
 | Document | Contenu |
 |---|---|
-| [docs/cursus.md](docs/cursus.md) | Le plan en modules, la boîte à outils, l'état d'avancement |
+| [docs/cursus.md](docs/cursus.md) | Le plan : préparation P1 à P6, puis modules 0 à 10 ; la boîte à outils ; l'état d'avancement |
+| [apprentissage/](apprentissage/) | La méthode (je fais, on fait, tu fais), le carnet, les exercices et les quiz |
 | [docs/notes-de-depart.md](docs/notes-de-depart.md) | Ce que sont dlib et l'extension, leurs équivalents, et pourquoi tout réécrire |
 | [logs/reprise.md](logs/reprise.md) | Où en est le chantier, maintenant |
 | [logs/journal-modifications.md](logs/journal-modifications.md) | L'historique des changements |
