@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-07 — Donner un épisode de blog à chaque étape
+
+- **Quoi** : la règle du blog passe de « un épisode par module ou grande étape » à « un épisode par étape du cursus (P1 à P6, modules 0 à 10, 3b compris), plus les moments marquants ». Le blog garde aussi les moments vécus (erreurs, blocages, déclics, phrases du carnet). L'écriture de l'épisode entre dans l'étape 5 du rituel de séance.
+- **Fichiers** : `CLAUDE.md`, `blog/README.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : choix de l'humain, qui veut relire le chemin plus tard « comme une madeleine de Proust ». Corrige aussi une contradiction : le sommaire réservait le premier épisode au module 0, alors que P6 est déjà un premier entraînement qui apprend.
+- **Étapes** : réécriture des règles, commit et push. Pas de code, donc pas de build ni de test.
+
 ## 2026-11-07 — Passer de C++ à Rust
 
 - **Quoi** : le langage du projet devient Rust (stable, édition 2024). CLAUDE.md (mode prof, projet, langage, dépendances, construire, git), cursus réécrit (préparation P1 à P6 pour Rust, boîte à outils, colonne « Rust pratiqué », fil rouge statique/dynamique, conseils, ressources), README, `apprentissage/README.md`, `.gitignore` (`target/`), reprise ; addendum daté dans les notes de départ (comparaison C, C++, Rust).

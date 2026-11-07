@@ -1,7 +1,7 @@
 # Le carnet de dlib-less
 
-Un épisode par module validé ou par grande étape, en français. Règles d'écriture : section « Le blog » de [CLAUDE.md](../CLAUDE.md).
+Un épisode par étape du cursus (P1 à P6, puis chaque module), plus les moments marquants, en français. Règles d'écriture : section « Le blog » de [CLAUDE.md](../CLAUDE.md).
 
 ## Sommaire
 
-Aucun épisode pour l'instant. Le premier racontera le module 0.
+Aucun épisode pour l'instant. Le premier racontera P1 : terminal, git et cargo.

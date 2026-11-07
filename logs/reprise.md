@@ -16,6 +16,7 @@ Aucun. Prochaine étape : **P1, Terminal, git et cargo** (préparation, voir [do
 - 2026-11-06 : dépôt GitHub `Aughra/Dlib-less` créé, premier commit poussé. Licence Boost (BSL-1.0) ajoutée.
 - 2026-11-06 : préparation P1 à P6 ajoutée au cursus, « mode prof » dans CLAUDE.md, dossier `apprentissage/` (méthode, carnet, quiz).
 - 2026-11-07 : **passage de C++ à Rust** : CLAUDE.md, cursus (préparation, boîte à outils, modules, ressources), README, `apprentissage/`, `.gitignore` adaptés ; addendum dans les notes de départ.
+- 2026-11-07 : règle du blog élargie : un épisode par étape du cursus, préparation comprise.
 
 ## En cours
 
@@ -40,6 +41,8 @@ Rien.
 - L'humain débute : préparation P1 à P6 avant le module 0.
 - **Tout en Rust, pas de Python**, même comme brouillon. Le C++ de dlib et de l'extension se lit, il ne s'écrit pas.
 - Mode prof par défaut : Claude n'écrit pas la solution des exercices sans demande explicite.
+- **Blog : un épisode par étape du cursus** (P1 à P6 et chaque module), plus les moments marquants (décision du 2026-11-07). Le blog est aussi la mémoire du chemin, à relire « comme une madeleine de Proust ».
+- **À chaque fin d'étape : écrire son épisode** dans le même commit.
 
 ## Problèmes ouverts
 

@@ -35,7 +35,7 @@ dlib-less sert d'abord à **apprendre**. Claude est un professeur particulier, p
 2. Annoncer **le** concept du jour et ce qu'on saura faire à la fin.
 3. Je fais, on fait, tu fais. Le test de l'exercice passe.
 4. L'humain écrit **trois lignes dans [apprentissage/carnet.md](apprentissage/carnet.md)**, avec ses mots. S'il n'y arrive pas, le concept est repris à la séance suivante.
-5. Mettre à jour la reprise (et l'état de l'étape dans le cursus), commit, push.
+5. Mettre à jour la reprise (et l'état de l'étape dans le cursus) ; si l'étape se termine, écrire son épisode du blog ; commit, push.
 
 ---
 
@@ -147,11 +147,13 @@ Documents qui doivent toujours rester **vrais** :
 
 [docs/notes-de-depart.md](docs/notes-de-depart.md) est une archive de la discussion de départ : elle ne se réécrit pas, sauf erreur de fait.
 
-### Le blog (un épisode par module ou grande étape, en français)
+### Le blog (un épisode par étape du cursus, en français)
 
 Le blog raconte l'apprentissage **épisode par épisode**, comme un billet de carnet, pour un lecteur curieux qui n'est pas forcément développeur. Il vit dans [blog/](blog/). Le ton suit celui du carnet TortueTech et du blog du portage Mac de Dlib-Transformer-extensions. Claude ne publie rien en ligne : l'humain décide où et quand.
 
-- **Un épisode par module terminé ou par grande étape, en français seulement** : `blog/NN-titre-court.md`, numéroté à la suite. Est une grande étape : un module validé, un premier entraînement qui apprend, une première inférence d'un vrai modèle, une première mesure qui surprend, un tournant. Un épisode publié ne se réécrit pas ; on ne le corrige que pour une erreur de fait.
+C'est aussi **la mémoire du chemin** : l'humain le relira plus tard comme une madeleine de Proust. Chaque épisode garde donc les moments vécus, pas seulement le résultat : la première erreur du compilateur, ce qui a bloqué, le déclic, une phrase du carnet (copiée telle quelle).
+
+- **Un épisode par étape du cursus, en français seulement** : chaque étape de la préparation (P1 à P6) et chaque module (0 à 10, 3b compris) a le sien, `blog/NN-titre-court.md`, numéroté à la suite. Un moment marquant au milieu d'une étape peut avoir un épisode de plus : un premier entraînement qui apprend, une première inférence d'un vrai modèle, une première mesure qui surprend, un tournant. Un épisode publié ne se réécrit pas ; on ne le corrige que pour une erreur de fait.
 - **Écrit dans le même commit que la fin de l'étape**, avec l'entrée du journal, et ajouté au sommaire [blog/README.md](blog/README.md).
 - **Forme d'un épisode** :
   - titre `# dlib-less, épisode N : <sujet>` ;
