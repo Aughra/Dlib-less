@@ -29,4 +29,7 @@ Chaque mot nouveau, expliqué avec mes mots, et une image si elle me vient. Une 
 ```
 
 - **compiler** : tranformer prgm en binaire.
-- **cargo** :
+- **cargo** : lancer les commandes pour tester , exec , compiler
+- macro : une suite de commande pour faire une action
+- warning : une erreur non bloquante
+- \n : new ligne

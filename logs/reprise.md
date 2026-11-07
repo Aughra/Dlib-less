@@ -22,7 +22,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 
 ## En cours
 
-P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carnet attend la définition de « cargo ».
+P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carnet est rempli ; la définition de « macro » est à préciser (une macro fabrique du code).
 
 ## À faire, dans l'ordre proposé
 
@@ -47,6 +47,7 @@ P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carn
 - **Blog : un épisode par étape du cursus** (P1 à P6 et chaque module), plus les moments marquants (décision du 2026-11-07). Le blog est aussi la mémoire du chemin, à relire « comme une madeleine de Proust ».
 - **À chaque fin d'étape : écrire son épisode** dans le même commit.
 - **Atelier du prof** : tout ce que Claude fabrique va dans `prof/`, suivi par git (décision du 2026-11-07).
+- **Tableaux** : l'humain écrit en listes, Claude garde les tableaux dans ses explications (décision du 2026-11-07).
 
 ## Problèmes ouverts
 

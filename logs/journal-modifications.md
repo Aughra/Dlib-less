@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-07 — Ne plus faire écrire de tableaux à l'humain
+
+- **Quoi** : règle ajoutée au mode prof : ce que l'humain remplit (carnet, quiz, réponses) se fait en listes ; Claude garde les tableaux dans ses explications. Lexique du carnet complété par l'humain (cargo, macro, warning, `\n`).
+- **Fichiers** : `CLAUDE.md`, `apprentissage/carnet.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : les tableaux Markdown sont pénibles à écrire à la main ; ils restent utiles à lire.
+- **Étapes** : rédaction, commit et push. Pas de code.
+
 ## 2026-11-07 — Faire la première séance : P1, cargo
 
 - **Quoi** : séance sur cargo (le Terminal était déjà connu). Exercices `p1-01-bonjour` (exploration des erreurs) et `p1-02-carte` (énoncé et test fournis par Claude, code de l'humain, test réussi). Exemple et vérification du test dans `prof/p1-cargo/`. Convention de nommage des exercices passée en minuscules (`pN-xx-nom`), après l'avertissement de cargo. Lexique du carnet passé d'un tableau à une liste. P1 passe à « en cours » dans le cursus.
