@@ -30,6 +30,6 @@ Chaque mot nouveau, expliqué avec mes mots, et une image si elle me vient. Une 
 
 - **compiler** : tranformer prgm en binaire.
 - **cargo** : lancer les commandes pour tester , exec , compiler
-- macro : une suite de commande pour faire une action
+- macro : la macro agit pendant la compil pour inserer du code text en rust, et est utilise avec !
 - warning : une erreur non bloquante
 - \n : new ligne

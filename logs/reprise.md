@@ -22,7 +22,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 
 ## En cours
 
-P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carnet est rempli ; la définition de « macro » est à préciser (une macro fabrique du code).
+P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carnet est rempli, « macro » compris (précisée en trois essais : elle insère du code Rust pendant la compilation).
 
 ## À faire, dans l'ordre proposé
 
