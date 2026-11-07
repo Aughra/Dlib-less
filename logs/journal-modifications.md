@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-07 — Faire la première séance : P1, cargo
+
+- **Quoi** : séance sur cargo (le Terminal était déjà connu). Exercices `p1-01-bonjour` (exploration des erreurs) et `p1-02-carte` (énoncé et test fournis par Claude, code de l'humain, test réussi). Exemple et vérification du test dans `prof/p1-cargo/`. Convention de nommage des exercices passée en minuscules (`pN-xx-nom`), après l'avertissement de cargo. Lexique du carnet passé d'un tableau à une liste. P1 passe à « en cours » dans le cursus.
+- **Fichiers** : `apprentissage/exercices/p1-01-bonjour/`, `apprentissage/exercices/p1-02-carte/`, `apprentissage/carnet.md`, `apprentissage/README.md`, `prof/p1-cargo/`, `docs/cursus.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : premier pas de la préparation ; le nommage en majuscules venait d'une consigne de Claude et provoquait un avertissement ; les tableaux Markdown sont pénibles à écrire à la main.
+- **Étapes** : `cargo test` réussi sur `p1-02-carte`, `cargo fmt --check` et `cargo clippy --all-targets` propres sur les deux exercices et l'atelier, commit et push.
+
 ## 2026-11-07 — Créer l'atelier du prof
 
 - **Quoi** : nouveau dossier `prof/`, où Claude range tout ce qu'il fabrique (exemples du « je fais », essais, démonstrations), et nulle part ailleurs sur la machine. Règle ajoutée à CLAUDE.md, ligne ajoutée au README.

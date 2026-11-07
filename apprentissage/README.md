@@ -39,7 +39,7 @@ Un mot sur le compilateur de Rust : il refuse souvent, surtout au début. Ce n'e
 | Chemin | Contenu |
 |---|---|
 | [carnet.md](carnet.md) | Tes trois lignes par séance, et le lexique des mots appris |
-| `exercices/PN-xx-nom/` | Un petit projet cargo par exercice : l'énoncé (`ENONCE.md`), ton code, ses tests (`cargo test`), créés au fil des séances |
+| `exercices/pN-xx-nom/` | Un petit projet cargo par exercice, nommé en minuscules (`p1-01-bonjour`), comme cargo le recommande : l'énoncé (`ENONCE.md`), ton code, ses tests (`cargo test`), créés au fil des séances |
 | [quiz/](quiz/) | Les mini-quiz et tes réponses |
 
 ## Ressources

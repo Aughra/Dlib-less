@@ -8,7 +8,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 
 ## Module en cours
 
-Aucun. Prochaine étape : **P1, Terminal, git et cargo** (préparation, voir [docs/cursus.md](../docs/cursus.md)). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
+**P1, Terminal, git et cargo** (préparation, voir [docs/cursus.md](../docs/cursus.md)) : Terminal déjà connu, cargo vu, **git reste à voir** (prochaine séance). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
 
 ## Fait
 
@@ -18,20 +18,22 @@ Aucun. Prochaine étape : **P1, Terminal, git et cargo** (préparation, voir [do
 - 2026-11-07 : **passage de C++ à Rust** : CLAUDE.md, cursus (préparation, boîte à outils, modules, ressources), README, `apprentissage/`, `.gitignore` adaptés ; addendum dans les notes de départ.
 - 2026-11-07 : règle du blog élargie : un épisode par étape du cursus, préparation comprise.
 - 2026-11-07 : dossier `prof/` créé, l'atelier de Claude.
+- 2026-11-07 : **première séance (P1, cargo)** : `cargo new`, `cargo run`, `cargo test`, lecture de trois erreurs (E0423, E0765, `cd: too many arguments`) et d'un avertissement de nommage. Exercices `p1-01-bonjour` et `p1-02-carte` (test réussi). Carnet rempli ; lexique passé du tableau à une liste (les tableaux Markdown gênent l'humain).
 
 ## En cours
 
-Rien.
+P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carnet attend la définition de « cargo ».
 
 ## À faire, dans l'ordre proposé
 
-1. **Préparation P1 à P6**, sur le M2, à partir de P1. Installer Rust (`rustup`), VS Code avec rust-analyzer et CodeLLDB. Chaque exercice dans `apprentissage/exercices/`, un projet cargo chacun.
-2. **Module 0** :
+1. **P1, séance git** : `git add`, `commit`, `push`, `status`, `log` ; puis épisode 1 du blog (P1). Rust, rust-analyzer et les outils d'Apple sont déjà installés ; reste CodeLLDB dans VS Code.
+2. **Préparation P2 à P6**, sur le M2. Chaque exercice dans `apprentissage/exercices/`, un projet cargo chacun.
+3. **Module 0** :
    - espace de travail cargo à la racine, profils debug et release ;
    - un premier test qui passe (`cargo test`), `cargo clippy` et `cargo fmt --check` propres ;
    - réécrire la section « Construire » de CLAUDE.md avec les vraies commandes.
-3. **Module 1** : le tenseur.
-4. À l'arrivée du Mac mini M5 Pro (fin novembre) : refaire le build complet dessus, relancer les tests, et noter les premières mesures des deux machines.
+4. **Module 1** : le tenseur.
+5. À l'arrivée du Mac mini M5 Pro (fin novembre) : refaire le build complet dessus, relancer les tests, et noter les premières mesures des deux machines.
 
 ## Décisions
 
@@ -54,4 +56,7 @@ Rien.
 
 ## Commandes pour reprendre
 
-Aucune pour l'instant (pas encore de code).
+```
+cd apprentissage/exercices/p1-02-carte
+cargo test        # le test de la carte de visite doit passer
+```
