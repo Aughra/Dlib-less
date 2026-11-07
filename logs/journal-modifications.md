@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-07 — Créer l'atelier du prof
+
+- **Quoi** : nouveau dossier `prof/`, où Claude range tout ce qu'il fabrique (exemples du « je fais », essais, démonstrations), et nulle part ailleurs sur la machine. Règle ajoutée à CLAUDE.md, ligne ajoutée au README.
+- **Fichiers** : `prof/README.md`, `CLAUDE.md`, `README.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : demande de l'humain, qui ne veut pas de fichiers éparpillés hors du projet. Le premier exemple de cargo avait été fait dans un dossier temporaire du système, puis supprimé.
+- **Étapes** : rédaction, commit et push. Pas de code, donc pas de build ni de test.
+
 ## 2026-11-07 — Donner un épisode de blog à chaque étape
 
 - **Quoi** : la règle du blog passe de « un épisode par module ou grande étape » à « un épisode par étape du cursus (P1 à P6, modules 0 à 10, 3b compris), plus les moments marquants ». Le blog garde aussi les moments vécus (erreurs, blocages, déclics, phrases du carnet). L'écriture de l'épisode entre dans l'étape 5 du rituel de séance.

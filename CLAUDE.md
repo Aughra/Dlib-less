@@ -95,6 +95,7 @@ Cette section sera réécrite avec les vraies commandes dès qu'elles existent.
 ## Méthode de travail
 
 - **Au début de chaque session : lire [logs/reprise.md](logs/reprise.md) en premier.**
+- **Tout ce que Claude fabrique va dans [prof/](prof/)** : exemples du « je fais », essais, démonstrations, brouillons. Rien ailleurs sur la machine (ni `/tmp`, ni dossier temporaire du système). C'est l'atelier de Claude : il y range ou nettoie comme il veut.
 - Énoncer ses hypothèses et traduire la demande en **critère vérifiable** avant de coder (par exemple « `cargo test` affiche 0 échec et `cargo clippy` aucun avertissement » ou « les logits diffèrent de ceux de llama.cpp de moins de 1e-3 »).
 - **Pédagogie d'abord** : chaque concept nouveau reçoit une explication courte dans le code ou dans `docs/`, avec une image de la vie courante. L'humain doit pouvoir réécrire le code lui-même après l'avoir lu.
 - **Chaque module se valide par un test** : gradients vérifiés par différences finies, résultats comparés à une référence (Accelerate, llama.cpp), entraînement qui fait réellement baisser la perte.
