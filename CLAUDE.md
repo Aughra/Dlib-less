@@ -23,11 +23,11 @@ dlib-less sert d'abord à **apprendre**. Claude est un professeur particulier, p
   3. *tu fais* : un exercice court que l'humain écrit lui-même, avec un **test qui dit si c'est juste**.
 - **Un seul concept par séance.** Si l'humain bloque, revenir en arrière plutôt que d'empiler.
 - **Relire le code de l'humain sans le réécrire** : montrer où est le problème, expliquer pourquoi, laisser corriger. Commencer par ce qui est juste.
-- **Lire les erreurs du compilateur avec lui** : traduire le message, montrer la ligne, expliquer la cause. Savoir lire une erreur fait partie du cours.
+- **Lire les erreurs du compilateur avec lui** : traduire le message, montrer la ligne, expliquer la cause. Savoir lire une erreur fait partie du cours. Les erreurs de Rust sont longues mais pédagogiques (elles proposent souvent la correction) ; les refus du vérificateur d'emprunts (*borrow checker*) s'expliquent avec l'image du livre de bibliothèque prêté.
 - **Pas de jargon non expliqué.** Un mot nouveau reçoit une phrase d'explication et une image la première fois ; il entre ensuite au lexique du carnet.
 - **Vérifier la compréhension** : poser une question courte en fin de concept ; tous les 3 ou 4 concepts, un mini-quiz de 5 questions (dans `apprentissage/quiz/`).
 - **Le code du projet** (modules 0 à 10) peut être écrit à deux, mais chaque morceau doit avoir été compris : l'humain doit pouvoir l'expliquer avec ses mots.
-- Pas de Python, ni dans les exemples, ni dans les explications : comparer avec du C++ ou du papier.
+- Pas de Python, ni dans les exemples, ni dans les explications : comparer avec du Rust ou du papier. Du C++ peut être **montré** quand on lit dlib ou l'extension, pour le traduire, jamais écrit.
 
 ### Le rituel d'une séance (45 à 90 minutes)
 
@@ -41,11 +41,11 @@ dlib-less sert d'abord à **apprendre**. Claude est un professeur particulier, p
 
 ## Le projet
 
-**dlib-less** est un projet **d'apprentissage** : réécrire **from scratch, en C++ moderne**, les concepts de [dlib](https://github.com/davisking/dlib) (tenseurs, couches, calcul de gradients, entraînement) et de [Dlib-Transformer-extensions](https://github.com/Cydral/Dlib-Transformer-extensions) (Transformers, GGUF, quantification, LoRA, tokenizer…), **sans dépendre de dlib**.
+**dlib-less** est un projet **d'apprentissage** : réécrire **from scratch, en Rust**, les concepts de [dlib](https://github.com/davisking/dlib) (tenseurs, couches, calcul de gradients, entraînement) et de [Dlib-Transformer-extensions](https://github.com/Cydral/Dlib-Transformer-extensions) (Transformers, GGUF, quantification, LoRA, tokenizer…), **sans dépendre de dlib**.
 
 Le but premier est de **comprendre**, pas de concurrencer llama.cpp. Un code lisible et expliqué vaut mieux qu'un code rapide et obscur. La vitesse vient ensuite, mesurée.
 
-L'humain **débute en C++** : le cursus commence par une préparation (P1 à P6) avant le module 0. **Tout se fait en C++, pas de Python**, même comme brouillon ; les concepts de ML s'abordent d'abord sur papier, puis en C++.
+L'humain **débute en programmation système** : le cursus commence par une préparation (P1 à P6) avant le module 0. **Tout se fait en Rust, pas de Python**, même comme brouillon ; les concepts de ML s'abordent d'abord sur papier, puis en Rust. dlib et l'extension sont en C++ : on lit leur code pour comprendre, on traduit les idées en Rust.
 
 Le plan complet est dans [docs/cursus.md](docs/cursus.md). Le contexte (ce qu'est dlib, l'extension, les équivalents, le choix de partir de zéro) est dans [docs/notes-de-depart.md](docs/notes-de-depart.md).
 
@@ -58,20 +58,20 @@ Le plan complet est dans [docs/cursus.md](docs/cursus.md). Le contexte (ce qu'es
 | Actuelle | Mac M2 (8 cœurs, 24 Go de mémoire unifiée) |
 | Prévue (arrivée fin novembre 2026) | **Mac mini M5 Pro** : CPU 18 cœurs, GPU 20 cœurs, Neural Engine 16 cœurs, **64 Go de mémoire unifiée**, 2 To |
 
-Windows, Linux, x86 et CUDA sont hors du périmètre. Les solutions propres au Mac sont la norme ici : NEON, `__fp16`, Accelerate, Metal (via metal-cpp), mémoire unifiée.
+Windows, Linux, x86 et CUDA sont hors du périmètre. Les solutions propres au Mac sont la norme ici : NEON (`std::arch::aarch64`), Accelerate, Metal, mémoire unifiée.
 
-### Standard C++
+### Langage : Rust
 
-- Base : **C++23** (`std::expected`, `std::mdspan`, `std::print`, *deducing this*, concepts, ranges).
-- Les nouveautés **C++26** sont permises quand le compilateur les supporte vraiment ; les isoler et le signaler.
-- Compilateur visé : **LLVM de Homebrew** (`brew install llvm`), plus à jour que l'AppleClang de Xcode pour le C++ récent. Décision à confirmer au module 0 ; si AppleClang suffit, le noter ici.
-- Les modules C++20 (`import std;`) sont optionnels et reportés : en-têtes classiques au départ.
+- **Rust stable, édition 2024**, installé par `rustup`. Les fonctions *nightly* sont évitées ; si l'une devient indispensable, l'isoler et le signaler. Exception : Miri (`cargo +nightly miri test`) comme outil de vérification.
+- **`unsafe` rare et enfermé** : seulement pour la FFI (Accelerate, Metal), le SIMD et les fichiers projetés en mémoire, dans des modules dédiés derrière une interface sûre. Chaque bloc `unsafe` porte un commentaire `// SAFETY:` qui dit pourquoi il est correct.
+- `cargo clippy` et `cargo fmt` passent sans avertissement avant chaque commit de code.
+- Les outils de compilation d'Apple (`xcode-select --install`) restent requis (édition de liens, frameworks).
 
 ### Ce qu'on s'interdit
 
 - **Aucune dépendance à dlib.** On peut le lire pour comprendre, on ne l'inclut pas.
-- Pas de bibliothèque de ML (ggml, LibTorch, MLX…) dans le code. On les lit, on s'en sert comme **référence de comparaison** (par exemple llama.cpp pour vérifier des logits), jamais comme brique.
-- Dépendances permises : la bibliothèque standard, les frameworks Apple (Accelerate, Metal via metal-cpp), une bibliothèque de tests (doctest ou Catch2). Toute autre dépendance se propose et se justifie avant d'être ajoutée.
+- Pas de bibliothèque de ML (candle, burn, ggml, MLX, ndarray…) dans le code. On les lit, on s'en sert comme **référence de comparaison** (par exemple llama.cpp pour vérifier des logits), jamais comme brique.
+- Dépendances permises : la bibliothèque standard de Rust (tests compris : `cargo test`), les frameworks Apple appelés en FFI (Accelerate déclaré à la main ; Metal via `objc2-metal`, à valider au module 8). **Toute autre crate se propose et se justifie avant d'être ajoutée** (candidates prévues : une crate de projection mémoire au module 7, `half` si `f16` n'est pas stable).
 
 ### Licence et emprunts
 
@@ -83,9 +83,10 @@ dlib-less est sous **Boost Software License 1.0** ([LICENSE](LICENSE)), comme dl
 
 Rien n'est encore construit : la structure arrive au **module 0** (voir [docs/cursus.md](docs/cursus.md)). Règles prévues :
 
-- CMake + Ninja. Tous les dossiers de build sous `build/` (ignoré par `.gitignore`), un dossier par configuration (`build/debug`, `build/release`, `build/asan`).
-- Avec Ninja, `-- -k 0` relève toutes les erreurs en un seul passage. Les compilations longues tournent en arrière-plan.
-- Une configuration avec sanitizers (AddressSanitizer, UBSan) existe dès le départ et passe les tests.
+- Un espace de travail cargo (*workspace*) à la racine. Les builds vont dans `target/` (ignoré par `.gitignore`). `Cargo.lock` est commité.
+- Commandes prévues : `cargo build`, `cargo test`, `cargo test --release` (les calculs lourds), `cargo clippy --all-targets`, `cargo fmt --check`. Les compilations longues tournent en arrière-plan.
+- Le code `unsafe` passe sous Miri quand c'est possible (la FFI vers Apple ne le peut pas).
+- Les exercices de la préparation vivent dans `apprentissage/exercices/`, un petit projet cargo chacun.
 
 Cette section sera réécrite avec les vraies commandes dès qu'elles existent.
 
@@ -94,7 +95,7 @@ Cette section sera réécrite avec les vraies commandes dès qu'elles existent.
 ## Méthode de travail
 
 - **Au début de chaque session : lire [logs/reprise.md](logs/reprise.md) en premier.**
-- Énoncer ses hypothèses et traduire la demande en **critère vérifiable** avant de coder (par exemple « `ctest` affiche 100 % des tests réussis » ou « les logits diffèrent de ceux de llama.cpp de moins de 1e-3 »).
+- Énoncer ses hypothèses et traduire la demande en **critère vérifiable** avant de coder (par exemple « `cargo test` affiche 0 échec et `cargo clippy` aucun avertissement » ou « les logits diffèrent de ceux de llama.cpp de moins de 1e-3 »).
 - **Pédagogie d'abord** : chaque concept nouveau reçoit une explication courte dans le code ou dans `docs/`, avec une image de la vie courante. L'humain doit pouvoir réécrire le code lui-même après l'avoir lu.
 - **Chaque module se valide par un test** : gradients vérifiés par différences finies, résultats comparés à une référence (Accelerate, llama.cpp), entraînement qui fait réellement baisser la perte.
 - Écrire le minimum qui résout le problème. Ne pas toucher aux fichiers hors du sujet de la demande.
@@ -174,4 +175,4 @@ CLAUDE.md est le document d'autorité du projet. En cas de contradiction avec un
 - On travaille sur `main`. Pour garder un état, poser un tag (`archive/<sujet>-<date>`) ; chaque module validé reçoit un tag `module-NN`.
 - **Commit de soi-même** après chaque unité de travail cohérente et **vérifiée** (build ou test réussi), avec son entrée dans le journal. Messages en français, concis, à l'impératif : le *quoi* et le *pourquoi*.
 - **Push vers `origin` seulement**, après chaque commit. Jamais de `--force`.
-- Ne jamais commiter `build/`, les modèles (`.gguf`, `.safetensors`, `.bin`), ni les jeux de données volumineux (déjà ignorés).
+- Ne jamais commiter `target/`, les modèles (`.gguf`, `.safetensors`, `.bin`), ni les jeux de données volumineux (déjà ignorés).

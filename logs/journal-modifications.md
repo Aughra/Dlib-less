@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-07 — Passer de C++ à Rust
+
+- **Quoi** : le langage du projet devient Rust (stable, édition 2024). CLAUDE.md (mode prof, projet, langage, dépendances, construire, git), cursus réécrit (préparation P1 à P6 pour Rust, boîte à outils, colonne « Rust pratiqué », fil rouge statique/dynamique, conseils, ressources), README, `apprentissage/README.md`, `.gitignore` (`target/`), reprise ; addendum daté dans les notes de départ (comparaison C, C++, Rust).
+- **Fichiers** : `CLAUDE.md`, `README.md`, `.gitignore`, `docs/cursus.md`, `docs/notes-de-depart.md`, `apprentissage/README.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : choix de l'humain après comparaison : un compilateur qui empêche les erreurs de mémoire et un outillage simple (cargo) conviennent mieux à un débutant, au prix d'un écart avec le code C++ de dlib.
+- **Étapes** : réécriture des documents, vérification qu'aucun document vivant ne parle encore de C++ pour le projet, commit et push. Pas de code, donc pas de build ni de test.
+
 ## 2026-11-06 — Ajouter la préparation et le mode prof
 
 - **Quoi** : préparation P1 à P6 (terminal et git, C++ de base, mémoire, classes et templates, maths, un neurone à la main) ajoutée avant le module 0 ; section « Mode prof » et rituel de séance dans CLAUDE.md ; dossier `apprentissage/` (méthode, carnet avec lexique, quiz) ; ressources pour débutant dans le cursus ; règle « tout en C++, pas de Python ».

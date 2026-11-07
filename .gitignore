@@ -1,7 +1,5 @@
-# Builds
-build/
-.cache/
-compile_commands.json
+# Builds (Cargo.lock est commité)
+target/
 
 # Modèles et données volumineuses
 *.gguf

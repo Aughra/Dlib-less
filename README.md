@@ -1,6 +1,6 @@
 # dlib-less
 
-Réécrire **from scratch, en C++ moderne et sur Mac Apple Silicon**, les concepts de [dlib](https://github.com/davisking/dlib) et de [Dlib-Transformer-extensions](https://github.com/Cydral/Dlib-Transformer-extensions) : tenseurs, couches, calcul de gradients, entraînement, Transformers, GGUF, quantification, LoRA… **sans dlib**.
+Réécrire **from scratch, en Rust et sur Mac Apple Silicon**, les concepts de [dlib](https://github.com/davisking/dlib) et de [Dlib-Transformer-extensions](https://github.com/Cydral/Dlib-Transformer-extensions) : tenseurs, couches, calcul de gradients, entraînement, Transformers, GGUF, quantification, LoRA… **sans dlib**.
 
 Un framework qui se définit par ce qu'il n'a pas.
 
@@ -20,7 +20,7 @@ C'est un projet **d'apprentissage** : le code vise d'abord à être compris, ens
 
 ## Plate-forme
 
-macOS sur Apple Silicon (arm64) uniquement. C++23.
+macOS sur Apple Silicon (arm64) uniquement. Rust stable, édition 2024.
 
 ## Licence
 

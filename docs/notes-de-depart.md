@@ -130,3 +130,30 @@ Sur le Mac de dlib-less, **mlx-lm et llama.cpp** serviront de **références** p
 - Sans dlib, le projet tend naturellement vers llama.cpp. Sa différence assumée : **la pédagogie** (code lisible et expliqué) et **le Mac comme seule cible**, avec un entraînement LoRA en C++ pur.
 - Les vrais pièges : la rétropropagation de l'attention (mémoire des activations → *gradient checkpointing*), la précision mixte (bf16/fp16), et les performances des kernels quantifiés.
 - Licence : dlib et l'extension sont sous Boost (BSL-1.0) ; un emprunt de code garde sa mention de licence et d'auteur.
+
+---
+
+## 5. Addendum du 7 novembre 2026 : Rust plutôt que C++
+
+> Ajouté après coup, sans réécrire ce qui précède : le choix du langage a changé le lendemain. Partout plus haut où il est écrit « C++ » pour dlib-less, lire désormais « Rust ».
+
+L'humain débute ; trois langages ont été comparés pour ce projet :
+
+| | **C++** | **C** | **Rust** |
+|---|---|---|---|
+| Proximité avec dlib et l'extension | ✅ Leur langue : on transpose presque mot pour mot | ⚠️ Il faut traduire | ⚠️ Il faut traduire |
+| Réseau « statique » à la dlib (modules 3 et 3b) | ✅ Les templates sont faits pour ça | ❌ Impossible sans génériques | ✅ Faisable avec génériques et traits, autrement |
+| Facilité pour un débutant | ❌ Langage immense, plein de pièges | ✅ Petit langage… | ⚠️ Compilateur strict, première marche raide |
+| Erreurs de mémoire | ❌ Possibles (sanitizers) | ❌❌ Partout, silencieuses | ✅ Empêchées par le compilateur |
+| Outils | ⚠️ CMake | ⚠️ Make ou CMake | ✅ cargo, tout en une commande |
+| Mac : Accelerate, Metal | ✅ metal-cpp officiel | ⚠️ Pont Objective-C | ✅ Crates de la communauté (`objc2-metal`) |
+| Références | dlib, l'extension, MLX, ggml | llm.c, llama2.c, ggml | candle, burn |
+
+En images : le C est une boîte à outils de base, où l'on taille chaque planche à la main ; le C++, un atelier de cinq cents machines dont certaines coupent si on ne lit pas la notice ; Rust, un atelier aussi complet avec un chef d'atelier qui refuse d'allumer une machine tant que les protections ne sont pas en place.
+
+**Choix retenu : Rust.** Le compilateur joue au prof sévère, et les erreurs de mémoire sont arrêtées avant l'exécution. Ce qu'on accepte en échange :
+- on s'éloigne du code de dlib : on le lit en C++, on traduit en Rust ;
+- le graphe de gradients dynamique (module 3b) se bat avec les règles d'emprunt : la solution passe par une « arène » et des indices, ce qui est un cours en soi ;
+- Metal passe par des crates de la communauté, pas par une enveloppe officielle d'Apple.
+
+Le C a été écarté : le plus simple à apprendre, mais il fait perdre le réseau statique (le concept phare de dlib) et laisse toute la mémoire à la main.

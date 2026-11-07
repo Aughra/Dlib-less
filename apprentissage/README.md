@@ -28,21 +28,24 @@ Tous les 3 ou 4 concepts : un **mini-quiz** de 5 questions, dans [quiz/](quiz/).
 
 ## Le chemin
 
-Préparation **P1 à P6** (terminal et git, C++ de base, mémoire, classes et templates, maths, un neurone à la main), puis les modules **0 à 10**. Le détail est dans [../docs/cursus.md](../docs/cursus.md).
+Préparation **P1 à P6** (terminal, git et cargo, Rust de base, possession et emprunt, structures et traits, maths, un neurone à la main), puis les modules **0 à 10**. Le détail est dans [../docs/cursus.md](../docs/cursus.md).
 
-**Tout en C++.** Les idées de maths et de ML se posent d'abord sur papier, puis on les code en C++.
+**Tout en Rust.** Les idées de maths et de ML se posent d'abord sur papier, puis on les code en Rust.
+
+Un mot sur le compilateur de Rust : il refuse souvent, surtout au début. Ce n'est pas lui contre toi : c'est un prof sévère qui corrige avant l'examen plutôt qu'après. Ses messages sont longs, mais ils proposent souvent la correction. On les lit ensemble.
 
 ## Organisation du dossier
 
 | Chemin | Contenu |
 |---|---|
 | [carnet.md](carnet.md) | Tes trois lignes par séance, et le lexique des mots appris |
-| `exercices/PN-xx-nom/` | Un dossier par exercice : l'énoncé (`ENONCE.md`), ton code, son test (créés au fil des séances) |
+| `exercices/PN-xx-nom/` | Un petit projet cargo par exercice : l'énoncé (`ENONCE.md`), ton code, ses tests (`cargo test`), créés au fil des séances |
 | [quiz/](quiz/) | Les mini-quiz et tes réponses |
 
 ## Ressources
 
-- **[learncpp.com](https://www.learncpp.com)** : le cours de C++ de référence, gratuit.
+- **[*Le langage de programmation Rust*](https://jimskapt.github.io/rust-book-fr/)** : le livre officiel, traduit en français. La référence, gratuite.
+- **[rustlings](https://github.com/rust-lang/rustlings)** : des centaines de mini-exercices corrigés par le compilateur, en complément de nos séances.
 - **3Blue1Brown** (YouTube) : *Essence of Linear Algebra*, *Neural Networks*.
-- **Andrej Karpathy** (YouTube) : *Neural Networks: Zero to Hero*, à regarder, puis recoder en C++.
-- **[godbolt.org](https://godbolt.org)** : essayer du C++ dans le navigateur.
+- **Andrej Karpathy** (YouTube) : *Neural Networks: Zero to Hero*, à regarder, puis recoder en Rust.
+- **[play.rust-lang.org](https://play.rust-lang.org)** : essayer du Rust dans le navigateur.
