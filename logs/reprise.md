@@ -1,6 +1,6 @@
 # Reprise — dlib-less
 
-> À lire en premier à chaque session (règle de CLAUDE.md). Dernière mise à jour : 2026-11-07.
+> À lire en premier à chaque session (règle de CLAUDE.md). Dernière mise à jour : 2026-11-08.
 
 ## Objectif
 
@@ -8,7 +8,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 
 ## Module en cours
 
-**P1, Terminal, git et cargo** (préparation, voir [docs/cursus.md](../docs/cursus.md)) : Terminal déjà connu, cargo vu, **git reste à voir** (prochaine séance). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
+Aucun. P1 est validée. Prochaine étape : **P2, Rust de base** (préparation, voir [docs/cursus.md](../docs/cursus.md)). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
 
 ## Fait
 
@@ -19,21 +19,21 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 - 2026-11-07 : règle du blog élargie : un épisode par étape du cursus, préparation comprise.
 - 2026-11-07 : dossier `prof/` créé, l'atelier de Claude.
 - 2026-11-07 : **première séance (P1, cargo)** : `cargo new`, `cargo run`, `cargo test`, lecture de trois erreurs (E0423, E0765, `cd: too many arguments`) et d'un avertissement de nommage. Exercices `p1-01-bonjour` et `p1-02-carte` (test réussi). Carnet rempli ; lexique passé du tableau à une liste (les tableaux Markdown gênent l'humain).
+- 2026-11-08 : **deuxième séance (P1, git)** : git déjà connu, exercice direct. Premier commit seul (`start`), qui embarquait une copie de `prof/p1-git/verifier.sh`, retirée au commit suivant ; lexique de git corrigé. Vérificateur tout vert. **P1 validée**, épisode 1 du blog écrit.
 
 ## En cours
 
-P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carnet est rempli, « macro » compris (précisée en trois essais : elle insère du code Rust pendant la compilation).
+Rien. Le carnet n'a pas encore de séance datée du 2026-11-08 (P1 : git) : la noter en début de prochaine séance, sans insister.
 
 ## À faire, dans l'ordre proposé
 
-1. **P1, séance git** : `git add`, `commit`, `push`, `status`, `log` ; puis épisode 1 du blog (P1). Rust, rust-analyzer et les outils d'Apple sont déjà installés ; reste CodeLLDB dans VS Code.
-2. **Préparation P2 à P6**, sur le M2. Chaque exercice dans `apprentissage/exercices/`, un projet cargo chacun.
-3. **Module 0** :
+1. **Préparation P2 à P6**, sur le M2, à partir de P2. Installer CodeLLDB dans VS Code (débogueur) au début de P2. Chaque exercice dans `apprentissage/exercices/`, un projet cargo chacun.
+2. **Module 0** :
    - espace de travail cargo à la racine, profils debug et release ;
    - un premier test qui passe (`cargo test`), `cargo clippy` et `cargo fmt --check` propres ;
    - réécrire la section « Construire » de CLAUDE.md avec les vraies commandes.
-4. **Module 1** : le tenseur.
-5. À l'arrivée du Mac mini M5 Pro (fin novembre) : refaire le build complet dessus, relancer les tests, et noter les premières mesures des deux machines.
+3. **Module 1** : le tenseur.
+4. À l'arrivée du Mac mini M5 Pro (fin novembre) : refaire le build complet dessus, relancer les tests, et noter les premières mesures des deux machines.
 
 ## Décisions
 
@@ -48,6 +48,7 @@ P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carn
 - **À chaque fin d'étape : écrire son épisode** dans le même commit.
 - **Atelier du prof** : tout ce que Claude fabrique va dans `prof/`, suivi par git (décision du 2026-11-07).
 - **Tableaux** : l'humain écrit en listes, Claude garde les tableaux dans ses explications (décision du 2026-11-07).
+- **Moins pointilleux** : rigueur sur le fond (code, faits, définitions) ; sur la forme (carnet, légendes, coquilles), une seule remarque, puis on avance (demande du 2026-11-08).
 
 ## Problèmes ouverts
 
@@ -58,6 +59,6 @@ P1 : la partie cargo est faite, la partie git reste à faire. Le lexique du carn
 ## Commandes pour reprendre
 
 ```
-cd apprentissage/exercices/p1-02-carte
-cargo test        # le test de la carte de visite doit passer
+cd apprentissage/exercices/p1-02-carte && cargo test   # doit passer
+sh prof/p1-git/verifier.sh                             # vérificateur de l'exercice git
 ```

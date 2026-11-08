@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-08 — Valider P1 et écrire l'épisode 1 du blog
+
+- **Quoi** : deuxième séance (git déjà connu, exercice direct) : l'humain a fait seul ses commits `1fc5535` (« start », avec une copie involontaire de `prof/p1-git/verifier.sh` à la racine), `fe63136` (retrait de la copie) et `896183c` (lexique de git corrigé). Vérificateur `prof/p1-git/verifier.sh` (écrit par Claude, commit `5db4adb`) tout vert. P1 passe à ✅ ; épisode 1 du blog et sommaire ; reprise mise à jour (prochaine étape : P2).
+- **Fichiers** : `blog/01-premiers-pas.md`, `blog/README.md`, `docs/cursus.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : fin de l'étape P1 ; règle « un épisode par étape ». Décision notée : Claude reste rigoureux sur le fond mais ne fait qu'une remarque sur la forme (l'humain l'a trouvé trop pointilleux).
+- **Étapes** : vérificateur relancé (4 ✅), contrôle du blog (titre, sommaire, ni e-mail ni chemin personnel), commit et push.
+
 ## 2026-11-07 — Ne plus faire écrire de tableaux à l'humain
 
 - **Quoi** : règle ajoutée au mode prof : ce que l'humain remplit (carnet, quiz, réponses) se fait en listes ; Claude garde les tableaux dans ses explications. Lexique du carnet complété par l'humain (cargo, macro, warning, `\n`).
