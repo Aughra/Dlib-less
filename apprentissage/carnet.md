@@ -3,11 +3,11 @@
 Trois lignes par séance, avec mes mots : ce que j'ai compris, ce qui m'a surpris, ce qui reste flou. Le plus récent en haut.
 
 ```markdown
-## AAAA-MM-JJ — <étape> : <concept>
+## 2026-11-08 — P1 : git
 
-- Compris :
-- Surpris par :
-- Encore flou :
+- Compris : tout 
+- Surpris par : rien
+- Encore flou : rien
 ```
 
 ---
@@ -34,7 +34,7 @@ Chaque mot nouveau, expliqué avec mes mots, et une image si elle me vient. Une 
 - warning : une erreur non bloquante
 - \n : new ligne
 - repository : ce que contient le projet et l'histo
-- commit ; prendre tout les fichiers du disk du projet en local
-- index : ce qui partira avec le push
-- github : contient le repo , et inventé par linus
-- 
+- commit ; prendre les fichier choisi pas git add du disk du projet en local
+- index : ce qui ira dans le prochain commit.
+- github : GitHub est un site, créé par d'autres, qui garde une copie des dépôts.
+-
