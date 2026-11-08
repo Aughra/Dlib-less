@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-08 — Faire la séance 1 de P2 : les variables
+
+- **Quoi** : séance sur `let`, `mut` et `+=`. Exemple dans `prof/p2-variables/` (avec une exception clippy assumée pour la démonstration), exercice `p2-02-tirelire` préparé et vérifié dans `prof/p2-02-tirelire/`, puis déposé (énoncé et trois tests) dans `apprentissage/exercices/p2-02-tirelire/`. Code de l'humain : `p2-01-variables` et `p2-02-tirelire`, 3 tests passent. P2 passe à « en cours ».
+- **Fichiers** : `apprentissage/exercices/p2-01-variables/`, `apprentissage/exercices/p2-02-tirelire/`, `prof/p2-variables/`, `prof/p2-02-tirelire/`, `docs/cursus.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : première notion de P2 (Rust de base).
+- **Étapes** : `cargo test` (3 réussis), `cargo fmt --check` et `cargo clippy --all-targets` propres sur les quatre projets, commit et push.
+
 ## 2026-11-08 — Valider P1 et écrire l'épisode 1 du blog
 
 - **Quoi** : deuxième séance (git déjà connu, exercice direct) : l'humain a fait seul ses commits `1fc5535` (« start », avec une copie involontaire de `prof/p1-git/verifier.sh` à la racine), `fe63136` (retrait de la copie) et `896183c` (lexique de git corrigé). Vérificateur `prof/p1-git/verifier.sh` (écrit par Claude, commit `5db4adb`) tout vert. P1 passe à ✅ ; épisode 1 du blog et sommaire ; reprise mise à jour (prochaine étape : P2).
