@@ -1,0 +1,4 @@
+[workspace]
+resolver = "2"
+members = ["*", "p1-cargo/*"]
+exclude = ["p1-cargo", "p1-git", "target"]
