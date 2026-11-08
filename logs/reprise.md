@@ -8,7 +8,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 
 ## Module en cours
 
-Aucun. P1 est validée. Prochaine étape : **P2, Rust de base** (préparation, voir [docs/cursus.md](../docs/cursus.md)). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
+**P2, Rust de base**, en cours. Séance 1 (variables, `let`, `mut`, `+=`) faite : exercices `p2-01-variables` et `p2-02-tirelire` (3 tests passent). Suite : types, puis `if` et `match`, boucles, fonctions, `Vec`, `String` (préparation, voir [docs/cursus.md](../docs/cursus.md)). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
 
 ## Fait
 
@@ -20,6 +20,7 @@ Aucun. P1 est validée. Prochaine étape : **P2, Rust de base** (préparation, v
 - 2026-11-07 : dossier `prof/` créé, l'atelier de Claude.
 - 2026-11-07 : **première séance (P1, cargo)** : `cargo new`, `cargo run`, `cargo test`, lecture de trois erreurs (E0423, E0765, `cd: too many arguments`) et d'un avertissement de nommage. Exercices `p1-01-bonjour` et `p1-02-carte` (test réussi). Carnet rempli ; lexique passé du tableau à une liste (les tableaux Markdown gênent l'humain).
 - 2026-11-08 : **deuxième séance (P1, git)** : git déjà connu, exercice direct. Premier commit seul (`start`), qui embarquait une copie de `prof/p1-git/verifier.sh`, retirée au commit suivant ; lexique de git corrigé. Vérificateur tout vert. **P1 validée**, épisode 1 du blog écrit.
+- 2026-11-08 : **P2, séance 1 (variables)** : `let`, `mut`, E0384 lue, `+=` conseillé par clippy ; l'humain a trouvé seul `println!("… {}", expression)`. Exercice `p2-02-tirelire` réussi (3 tests).
 
 ## En cours
 
