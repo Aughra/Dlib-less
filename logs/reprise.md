@@ -1,6 +1,6 @@
 # Reprise — dlib-less
 
-> À lire en premier à chaque session (règle de CLAUDE.md). Dernière mise à jour : 2026-11-08.
+> À lire en premier à chaque session (règle de CLAUDE.md). Dernière mise à jour : 2026-11-09.
 
 ## Objectif
 
@@ -8,7 +8,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 
 ## Module en cours
 
-**P2, Rust de base**, en cours. Séance 1 (variables, `let`, `mut`, `+=`) faite : exercices `p2-01-variables` et `p2-02-tirelire` (3 tests passent). Suite : types, puis `if` et `match`, boucles, fonctions, `Vec`, `String` (préparation, voir [docs/cursus.md](../docs/cursus.md)). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
+**P2, Rust de base**, en cours. Séance 1 (variables) faite. Séance 2 (types : `i32`, `u8`, `f64`, `bool`, `char`, `as`, division entière, floats inexacts, masquage découvert par l'humain) en cours : exercice `p2-04-conversions` commencé, ne compile pas encore (deux `;` manquants, `printf!` au lieu de `println!`). Suite : `if` et `match`, boucles, fonctions, `Vec`, `String` (préparation, voir [docs/cursus.md](../docs/cursus.md)). Méthode : « mode prof » de CLAUDE.md et [apprentissage/README.md](../apprentissage/README.md).
 
 ## Fait
 
@@ -21,6 +21,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 - 2026-11-07 : **première séance (P1, cargo)** : `cargo new`, `cargo run`, `cargo test`, lecture de trois erreurs (E0423, E0765, `cd: too many arguments`) et d'un avertissement de nommage. Exercices `p1-01-bonjour` et `p1-02-carte` (test réussi). Carnet rempli ; lexique passé du tableau à une liste (les tableaux Markdown gênent l'humain).
 - 2026-11-08 : **deuxième séance (P1, git)** : git déjà connu, exercice direct. Premier commit seul (`start`), qui embarquait une copie de `prof/p1-git/verifier.sh`, retirée au commit suivant ; lexique de git corrigé. Vérificateur tout vert. **P1 validée**, épisode 1 du blog écrit.
 - 2026-11-08 : **P2, séance 1 (variables)** : `let`, `mut`, E0384 lue, `+=` conseillé par clippy ; l'humain a trouvé seul `println!("… {}", expression)`. Exercice `p2-02-tirelire` réussi (3 tests).
+- 2026-11-08 : **P2, séance 2 (types)** : exemple `prof/p2-types/`, E0277 (`i32 * f64`) lue, `2.4499999999999997`, `7 / 2 = 3`, `-7 / 2 = -3` ; l'humain découvre le masquage (`let` deux fois). Exercice `p2-04-conversions` préparé (2 tests) et commencé. L'humain a regroupé les exercices et l'atelier en deux espaces de travail cargo.
 
 ## En cours
 
@@ -60,6 +61,7 @@ Rien. Le carnet n'a pas encore de séance datée du 2026-11-08 (P1 : git) : la n
 ## Commandes pour reprendre
 
 ```
-cd apprentissage/exercices/p1-02-carte && cargo test   # doit passer
-sh prof/p1-git/verifier.sh                             # vérificateur de l'exercice git
+cd apprentissage/exercices/p2-04-conversions && cargo test   # exercice en cours : 2 tests à faire passer
+cd apprentissage/exercices && cargo test --workspace           # tous les exercices (échoue tant que p2-04 ne compile pas)
+sh prof/p1-git/verifier.sh                                   # vérificateur de l'exercice git
 ```

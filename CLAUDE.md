@@ -87,7 +87,7 @@ Rien n'est encore construit : la structure arrive au **module 0** (voir [docs/cu
 - Un espace de travail cargo (*workspace*) à la racine. Les builds vont dans `target/` (ignoré par `.gitignore`). `Cargo.lock` est commité.
 - Commandes prévues : `cargo build`, `cargo test`, `cargo test --release` (les calculs lourds), `cargo clippy --all-targets`, `cargo fmt --check`. Les compilations longues tournent en arrière-plan.
 - Le code `unsafe` passe sous Miri quand c'est possible (la FFI vers Apple ne le peut pas).
-- Les exercices de la préparation vivent dans `apprentissage/exercices/`, un petit projet cargo chacun.
+- Les exercices de la préparation vivent dans `apprentissage/exercices/`, un petit projet cargo chacun, regroupés dans un espace de travail cargo (`apprentissage/exercices/Cargo.toml`, un seul `target/` partagé). L'atelier `prof/` a le sien.
 
 Cette section sera réécrite avec les vraies commandes dès qu'elles existent.
 

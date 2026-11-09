@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-09 — Noter la séance 2 de P2 (types) et les espaces de travail
+
+- **Quoi** : séance sur les types (`i32`, `u8`, `f64`, `bool`, `char`, conversion `as`, division entière, floats inexacts) ; exemple `prof/p2-types/`, exercice `p2-04-conversions` préparé dans `prof/` puis déposé (énoncé, 2 tests, code de départ). L'humain a commité son travail (commit `565fde1`, « suite 1 »), dont deux espaces de travail cargo (`apprentissage/exercices/Cargo.toml`, `prof/Cargo.toml`). Section « Construire » de CLAUDE.md et reprise mises à jour.
+- **Fichiers** : `CLAUDE.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : garder la doc vraie (les exercices sont désormais dans un espace de travail) et pouvoir reprendre l'exercice en cours.
+- **Étapes** : `cargo metadata` charge les deux espaces de travail (6 exercices, 4 projets d'atelier) ; `p2-04-conversions` ne compile pas encore (travail en cours de l'humain) ; `cargo fmt --check` propre sur `p2-03-types`, `prof/p2-types`, `prof/p2-04-conversions` ; commit et push.
+
 ## 2026-11-08 — Faire la séance 1 de P2 : les variables
 
 - **Quoi** : séance sur `let`, `mut` et `+=`. Exemple dans `prof/p2-variables/` (avec une exception clippy assumée pour la démonstration), exercice `p2-02-tirelire` préparé et vérifié dans `prof/p2-02-tirelire/`, puis déposé (énoncé et trois tests) dans `apprentissage/exercices/p2-02-tirelire/`. Code de l'humain : `p2-01-variables` et `p2-02-tirelire`, 3 tests passent. P2 passe à « en cours ».
