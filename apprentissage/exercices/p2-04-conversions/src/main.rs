@@ -3,8 +3,11 @@ fn main() {
     let note1: i32 = 12;
     let note2: i32 = 15;
 
-    let far = celsius * 9 / 5 + 32
-    let moyenne = (note1 + note2) / 2
 
-    printf!({},celsius," °C =",{},far," °F")
+    let far = celsius as f64 * 9.0 / 5.0 + 32.0;
+    let moyenne = (note1 as f64 + note2 as f64) / 2.0;
+
+    println!("{} °C = {} °F", celsius , far    );
+    println!("moyenne = {}", moyenne); 
+
 }

@@ -25,7 +25,7 @@ Apprendre en profondeur les concepts de dlib et de Dlib-Transformer-extensions e
 
 ## En cours
 
-Rien. Le carnet n'a pas encore de séance datée du 2026-11-08 (P1 : git) : la noter en début de prochaine séance, sans insister.
+P2 séance 2 terminée (2026-11-13) : `p2-04-conversions` réussi (2 tests). P2 séance 3 (`if`) faite : `p2-05-decisions` réussi (3 tests aux bords, `<` et `>` inversés puis corrigés). Carnets écrits par Claude à la demande de l'humain (à relire par lui). Prochaine séance : `match` (vu en exemple, pas pratiqué), puis boucles. Le carnet n'a pas encore de séance datée du 2026-11-08 (P1 : git) : la noter en début de prochaine séance, sans insister.
 
 ## À faire, dans l'ordre proposé
 

@@ -2,6 +2,13 @@
 
 Le plus récent en haut. Une entrée par intervention, jamais réécrite.
 
+## 2026-11-13 — Faire la séance 3 de P2 : `if`
+
+- **Quoi** : fin de `p2-04-conversions` (2 tests verts) ; séance sur `if` / `else if` / `else` (un `if` renvoie une valeur) et aperçu de `match` ; exercice `p2-05-decisions` (fonction `categorie`, 3 tests aux bords 12/13 et 17/18). L'humain avait inversé `<` et `>` : trouvé grâce aux tests. Carnet écrit par Claude à la demande de l'humain.
+- **Fichiers** : `apprentissage/exercices/p2-05-decisions/`, `apprentissage/exercices/p2-04-conversions/src/main.rs`, `apprentissage/carnet.md`, `logs/reprise.md`, `logs/journal-modifications.md`.
+- **Pourquoi** : avancer le cursus P2 ; montrer que les valeurs aux bords révèlent les erreurs.
+- **Étapes** : `cargo test` 3 réussis, `cargo clippy --all-targets` sans avertissement, `cargo fmt` appliqué sur `p2-05-decisions` ; commit et push.
+
 ## 2026-11-09 — Noter la séance 2 de P2 (types) et les espaces de travail
 
 - **Quoi** : séance sur les types (`i32`, `u8`, `f64`, `bool`, `char`, conversion `as`, division entière, floats inexacts) ; exemple `prof/p2-types/`, exercice `p2-04-conversions` préparé dans `prof/` puis déposé (énoncé, 2 tests, code de départ). L'humain a commité son travail (commit `565fde1`, « suite 1 »), dont deux espaces de travail cargo (`apprentissage/exercices/Cargo.toml`, `prof/Cargo.toml`). Section « Construire » de CLAUDE.md et reprise mises à jour.
